@@ -6,7 +6,7 @@
 #include "action_layer.h"
 
 #define BASE 0 // default layer
-#define SYMB 1 // symbols
+#define MDIA 1 // media keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -47,24 +47,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_0,             KC_MINS,
              KC_LBRC,       KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,             KC_RBRC,
                           KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN, KC_QUOT,
-             MO(SYMB),KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,   KC_RSPC,
+             MO(MDIA),KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,   KC_RSPC,
                                   KC_LEFT,  KC_DOWN,KC_UP,KC_RIGHT,          KC_MPLY,
              KC_RCTL,        KC_RALT,
              KC_PGUP,
              KC_PGDN,KC_BSPC, KC_SPC
     ),
-/* Keymap 1: Symbol Layer
+/* Keymap 1: Media Layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |      |      |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
+   |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      |   {  |   }  |   |  |      |           |      |Vol Up|VolDwn|   8  |   9  |   *  |   F12  |
+ * |        |      |      |      |      |      |      |           |      |Vol Up|VolDwn|      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |   (  |   )  |   `  |------|           |------|  |   4  |   5  |   6  |   +  |        |
+   |        |      |      |      |      |      |------|           |------|  |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |   [  |   ]  |   ~  |      |           |      |   &  |   1  |   2  |   3  |   \  |        |
+   |        |      |      |      |      |      |      |           |      |      |      |      |      |   \  |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |      |      |                                       |      |    . |   0  |   =  |      |
+     |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |      |      |
@@ -74,8 +74,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
-// SYMBOLS
-[SYMB] = KEYMAP(
+// MDIA
+[MDIA] = KEYMAP(
        // left hand
        KC_TRNS,KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,KC_TRNS,KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
