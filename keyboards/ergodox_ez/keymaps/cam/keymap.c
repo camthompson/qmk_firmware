@@ -20,12 +20,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | Mute |  `~  |  \   | Left | Right|                                       | Left | Down |  Up  | Right|Ply/Pse|
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        | LAlt | LCtl |       | RCtl |RAlt  |
- *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      | Home |       | PgUp |        |      |
- *                                 | Enter| LGUI |------|       |------|  Tab   |Space |
- *                                 |      |      | End  |       | PgDn |        |      |
- *                                 `--------------------'       `----------------------'
+ *                                        | LAlt | LCtl |       | RCtl | RAlt |
+ *                                 ,------|------|------|       |------+-------------.
+ *                                 |      |      | Home |       | PgUp |      |      |
+ *                                 | Enter| LGUI |------|       |------| Tab  |Space |
+ *                                 |      |      | End  |       | PgDn |      |      |
+ *                                 `--------------------'       `--------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
 // Otherwise, it needs KC_*
