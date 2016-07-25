@@ -79,4 +79,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
 
+#define LSPO_KEY KC_9
+#define RSPC_KEY KC_LBRC
+
 #endif
