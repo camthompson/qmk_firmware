@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |           |      |Vol Up|VolDwn|      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-   |        |      |      |      |      |      |------|           |------|  |      |      |      |      |        |
+   |        |      |      |      |      |      |------|           |------| F13  |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
    |        |      |      |      |      |      |      |           |      |      |      |      |      |   \  |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // right hand
        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
        KC_TRNS , KC_VOLD , KC_VOLU , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
-                 KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
+                 KC_F13  , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
        KC_TRNS , KC_MPRV , KC_MNXT , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
                            KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
        KC_TRNS , KC_TRNS ,
