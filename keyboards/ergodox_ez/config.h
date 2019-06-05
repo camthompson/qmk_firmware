@@ -117,7 +117,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * manufacturer specs.
  */
 
-#define USB_MAX_POWER_CONSUMPTION 50
+#define USB_MAX_POWER_CONSUMPTION 500
 
 // RGB backlight
 #define DRIVER_ADDR_1 0b1110100
