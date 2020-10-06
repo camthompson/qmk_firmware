@@ -5,6 +5,7 @@
 4. Push the reset button the keyboard with a paper clip
 
 # Massdrop ALT
+1. Download [mdloader](https://github.com/Massdrop/mdloader/releases) and `applet-flash-samd51j18a.bin`
 1. `make massdrop/alt:cam`
 2. Push reset button on bottom of keyboard with a paper clip
-3. `./mdloader_mac --first --download massdrop_alt_cam.bin --restart`
+3. `mdloader --first --download .build/massdrop_alt_cam.bin --restart`
