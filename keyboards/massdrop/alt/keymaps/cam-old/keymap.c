@@ -1,50 +1,63 @@
 #include QMK_KEYBOARD_H
 
 enum alt_keycodes {
-    L_BRI = SAFE_RANGE, //LED Brightness Increase                                   //Working
-    L_BRD,              //LED Brightness Decrease                                   //Working
-    L_PTN,              //LED Pattern Select Next                                   //Working
-    L_PTP,              //LED Pattern Select Previous                               //Working
-    L_PSI,              //LED Pattern Speed Increase                                //Working
-    L_PSD,              //LED Pattern Speed Decrease                                //Working
-    L_T_MD,             //LED Toggle Mode                                           //Working
-    L_T_ONF,            //LED Toggle On / Off                                       //Broken
-    L_ON,               //LED On                                                    //Broken
-    L_OFF,              //LED Off                                                   //Broken
-    L_T_BR,             //LED Toggle Breath Effect                                  //Working
-    L_T_PTD,            //LED Toggle Scrolling Pattern Direction                    //Working
-    U_T_AGCR,           //USB Toggle Automatic GCR control                          //Working
-    DBG_TOG,            //DEBUG Toggle On / Off                                     //
-    DBG_MTRX,           //DEBUG Toggle Matrix Prints                                //
-    DBG_KBD,            //DEBUG Toggle Keyboard Prints                              //
-    DBG_MOU,            //DEBUG Toggle Mouse Prints                                 //
-    MD_BOOT             //Restart into bootloader after hold timeout                //Working
+    L_BRI = SAFE_RANGE, //LED Brightness Increase
+    L_BRD,              //LED Brightness Decrease
+    L_PTN,              //LED Pattern Select Next
+    L_PTP,              //LED Pattern Select Previous
+    L_PSI,              //LED Pattern Speed Increase
+    L_PSD,              //LED Pattern Speed Decrease
+    L_T_MD,             //LED Toggle Mode
+    L_T_ONF,            //LED Toggle On / Off
+    L_ON,               //LED On
+    L_OFF,              //LED Off
+    L_T_BR,             //LED Toggle Breath Effect
+    L_T_PTD,            //LED Toggle Scrolling Pattern Direction
+    U_T_AUTO,           //USB Extra Port Toggle Auto Detect / Always Active
+    U_T_AGCR,           //USB Toggle Automatic GCR control
+    DBG_TOG,            //DEBUG Toggle On / Off
+    DBG_MTRX,           //DEBUG Toggle Matrix Prints
+    DBG_KBD,            //DEBUG Toggle Keyboard Prints
+    DBG_MOU,            //DEBUG Toggle Mouse Prints
+    MD_BOOT,            //Restart into bootloader after hold timeout
 };
+
+#define TG_NKRO MAGIC_TOGGLE_NKRO //Toggle 6KRO / NKRO mode
+
+keymap_config_t keymap_config;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
-        KC_ESC        , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    , KC_6    , KC_7    , KC_8       , KC_9    , KC_0    , KC_MINS , KC_EQL  , KC_BSPC , KC_DEL  , \
-        KC_TAB        , KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    , KC_Y    , KC_U    , KC_I       , KC_O    , KC_P    , KC_LBRC , KC_RBRC , KC_BSLS , KC_HOME , \
-        CTL_T(KC_ESC) , KC_A    , KC_S    , KC_D    , KC_F    , KC_G    , KC_H    , KC_J    , KC_K       , KC_L    , KC_SCLN , KC_QUOT , KC_ENT  , KC_PGUP , \
-        KC_LSFT       , KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    , KC_N    , KC_M    , KC_COMM    , KC_DOT  , KC_SLSH , KC_RSFT , KC_UP   , KC_PGDN , \
-        KC_LCTL       , KC_LALT , KC_LGUI , KC_SPC  , KC_RGUI , MO(1)   , KC_LEFT , KC_DOWN , KC_RGHT  \
-    )                 ,
+        KC_GRV        , KC_1    , KC_2    , KC_3   , KC_4    , KC_5  , KC_6    , KC_7    , KC_8       , KC_9   , KC_0    , KC_MINS , KC_EQL  , KC_BSPC , KC_DEL  , \
+        KC_TAB        , KC_Q    , KC_W    , KC_E   , KC_R    , KC_T  , KC_Y    , KC_U    , KC_I       , KC_O   , KC_P    , KC_LBRC , KC_RBRC , KC_BSLS , KC_HOME , \
+        CTL_T(KC_ESC) , KC_A    , KC_S    , KC_D   , KC_F    , KC_G  , KC_H    , KC_J    , KC_K       , KC_L   , KC_SCLN , KC_QUOT , KC_ENT  , KC_PGUP , \
+        KC_LSFT       , KC_Z    , KC_X    , KC_C   , KC_V    , KC_B  , KC_N    , KC_M    , KC_COMM    , KC_DOT , KC_SLSH , KC_RSFT , KC_UP   , KC_PGDN , \
+        KC_LCTL       , KC_LALT , KC_LGUI , KC_SPC , KC_RGUI , MO(1) , KC_LEFT , KC_DOWN , KC_RGHT  \
+    ),
     [1] = LAYOUT(
-        KC_GRV        , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   , KC_F7   , KC_F8      , KC_F9   , KC_F10  , KC_F11  , KC_F12  , _______ , KC_MUTE , \
-        L_T_BR        , L_PSD   , L_BRI   , L_PSI   , _______ , _______ , _______ , _______ , U_T_AGCR   , _______ , KC_PSCR , KC_SLCK , KC_PAUS , _______ , KC_END  , \
-        L_T_PTD       , L_PTP   , L_BRD   , L_PTN   , _______ , _______ , _______ , _______ , _______    , _______ , _______ , _______ , _______ , KC_VOLU , \
-        _______       , L_T_MD  , L_T_ONF , _______ , _______ , MD_BOOT , NK_TOGG , _______ , _______    , _______ , _______ , _______ , KC_PGUP , KC_VOLD , \
-        _______, _______, _______,                            _______,                            _______, _______, KC_HOME, KC_PGDN, KC_END  \
+        KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_TRNS, KC_MUTE, \
+        L_T_BR,  L_PSD,   L_BRI,   L_PSI,   KC_TRNS, KC_TRNS, KC_TRNS, U_T_AUTO,U_T_AGCR,KC_TRNS, KC_PSCR, KC_SLCK, KC_MPLY, KC_TRNS, KC_END, \
+        L_T_PTD, L_PTP,   L_BRD,   L_PTN,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_VOLU, \
+        KC_TRNS, L_T_MD,  L_T_ONF, KC_TRNS, KC_TRNS, MD_BOOT, TG_NKRO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PGUP, KC_VOLD, \
+        KC_TRNS, KC_TRNS, KC_TRNS,                            KC_TRNS,                            KC_TRNS, KC_TRNS, KC_HOME, KC_PGDN, KC_END  \
     ),
     /*
     [X] = LAYOUT(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______, \
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______, \
-        _______, _______, _______,                            _______,                            _______, _______, _______, _______, _______  \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, \
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, \
+        KC_TRNS, KC_TRNS, KC_TRNS,                            KC_TRNS,                            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS  \
     ),
     */
+};
+
+// Runs just one time when the keyboard initializes.
+void matrix_init_user(void) {
+};
+
+// Runs constantly in the background, in a loop.
+void matrix_scan_user(void) {
 };
 
 #define MODS_SHIFT  (get_mods() & MOD_BIT(KC_LSHIFT) || get_mods() & MOD_BIT(KC_RSHIFT))
@@ -131,6 +144,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 led_animation_direction = !led_animation_direction;
             }
             return false;
+        case U_T_AUTO:
+            if (record->event.pressed && MODS_SHIFT && MODS_CTRL) {
+                TOGGLE_FLAG_AND_PRINT(usb_extra_manual, "USB extra port manual mode");
+            }
+            return false;
         case U_T_AGCR:
             if (record->event.pressed && MODS_SHIFT && MODS_CTRL) {
                 TOGGLE_FLAG_AND_PRINT(usb_gcr_auto, "USB GCR auto mode");
@@ -169,13 +187,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true; //Process all other keycodes normally
     }
 }
-
-led_instruction_t led_instructions[] = {
-    //Please see ../default_md/keymap.c for examples
-
-    //All LEDs use the user's selected pattern (this is the factory default)
-     { .flags = LED_FLAG_USE_ROTATE_PATTERN },
-
-    //end must be set to 1 to indicate end of instruction set
-     { .end = 1 }
-};
