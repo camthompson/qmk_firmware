@@ -1,7 +1,7 @@
 # Ergodox EZ
 1. `make ergodox_ez:cam`
 2. Quit Karabiner Elements if it's running
-3. `teensy_loader_cli -mmcu=atmega32u4 -w ergodox_ez_cam.hex`
+3. `teensy_loader_cli -mmcu=atmega32u4 -w .build/ergodox_ez_cam.hex`
 4. Push the reset button the keyboard with a paper clip
 
 # Massdrop ALT
