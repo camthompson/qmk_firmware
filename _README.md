@@ -9,3 +9,8 @@
 1. `make massdrop/alt:cam`
 2. Push reset button on bottom of keyboard with a paper clip
 3. `mdloader --first --download .build/massdrop_alt_cam.bin --restart`
+
+# Moonlander
+1. `make moonlander:cam`
+2. `make moonlander:cam:flash`
+3. Push the reset button the keyboard with a paper clip
