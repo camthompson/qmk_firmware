@@ -16,6 +16,6 @@
 3. `mdloader --first --download .build/massdrop_alt_cam.bin --restart`
 
 # Moonlander
-1. `make moonlander:cam`
+1. `qmk compile -kb moonlander -km cam`
 2. `make moonlander:cam:flash`
 3. Push the reset button the keyboard with a paper clip
