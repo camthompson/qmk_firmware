@@ -5,7 +5,7 @@
 
 # Compiling Moonlander Firmware
 1. `qmk compile -kb moonlander -km cam`
-2. `make moonlander:cam:flash`
+2. `make zsa/moonlander:cam:flash`
 3. Push the reset button the keyboard with a paper clip
 
 # Deprecated
