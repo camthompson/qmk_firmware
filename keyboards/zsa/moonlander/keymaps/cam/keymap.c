@@ -12,10 +12,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_LEFT,                                        KC_RIGHT,       KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_BSLS,                                        KC_LBRC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_RBRC,
-    LCTL_T(KC_ESCAPE),KC_A,         KC_S,           KC_D,           KC_F,           KC_G,           HYPR_T(KC_NO),                                  HYPR_T(KC_NO),  KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,
+    LCTL_T(KC_ESCAPE),KC_A,         KC_S,           KC_D,           KC_F,           KC_G,           HYPR_T(KC_NO),                                  HYPR_T(KC_NO),  KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        LSA_T(KC_QUOTE),
     KC_LSFT,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLSH,        KC_RSFT,
     KC_GRAVE,       RM_TOGG,        OSL(1),         OSL(2),         KC_LALT,        HYPR_T(KC_NO),                                                  HYPR_T(KC_NO),  KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       MO(1),
-    KC_ENTER,       KC_LGUI,        KC_LGUI,                                                                                                        KC_BSPC,        KC_BSPC,        LALT_T(KC_SPC)
+    LSA_T(KC_ENTER),       KC_LGUI,        KC_LGUI,                                                                                                        KC_BSPC,        LALT_T(KC_BSPC),KC_SPC
   ),
   [1] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
